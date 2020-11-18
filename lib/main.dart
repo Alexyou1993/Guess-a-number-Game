@@ -53,12 +53,15 @@ class _TutorialHomeState extends State<TutorialHome> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Text(
-            'I\'m thinking of a number between 1 and 100. ',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-              wordSpacing: 5,
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'I\'m thinking of a number between 1 and 100. ',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                wordSpacing: 5,
+              ),
             ),
           ),
           Text(
