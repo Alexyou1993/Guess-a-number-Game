@@ -16,11 +16,11 @@ class TutorialHome extends StatefulWidget {
 
 class _TutorialHomeState extends State<TutorialHome> {
   int _guessNumber = Random().nextInt(100);
-  final _userInput = TextEditingController();
+  final TextEditingController _userInput = TextEditingController();
   String _showText = '';
 
   void _guessNumberF() {
-    int _userInt = int.parse(_userInput.text);
+    final int _userInt = int.parse(_userInput.text);
     if (_guessNumber == int.parse(_userInput.text)) {
       setState(() {
         _showText =
@@ -29,11 +29,11 @@ class _TutorialHomeState extends State<TutorialHome> {
       });
     } else if (_guessNumber > int.parse(_userInput.text)) {
       setState(() {
-        _showText = ('You guessed $_userInt\nTry a HIGHER number!');
+        _showText = 'You guessed $_userInt\nTry a HIGHER number!';
       });
     } else if (_guessNumber < int.parse(_userInput.text)) {
       setState(() {
-        _showText = ('You guessed $_userInt\nTry a LOWER number!');
+        _showText = 'You guessed $_userInt\nTry a LOWER number!';
       });
     }
     _userInput.clear();
@@ -44,18 +44,17 @@ class _TutorialHomeState extends State<TutorialHome> {
     // Scaffold is a layout for the major Material Components.
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Guess a number Game ',
           textAlign: TextAlign.center,
         ),
-        actions: <Widget>[],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(10),
-            child: Text(
+            padding: const EdgeInsets.all(10),
+            child: const Text(
               'I\'m thinking of a number between 1 and 100. ',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -64,12 +63,12 @@ class _TutorialHomeState extends State<TutorialHome> {
               ),
             ),
           ),
-          Text(
+          const Text(
             'It\'s your turn to guess my number!',
           ),
           Text(
-            '$_showText',
-            style: TextStyle(
+            _showText,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
               wordSpacing: 5,
@@ -83,9 +82,9 @@ class _TutorialHomeState extends State<TutorialHome> {
                 children: <Widget>[
                   Container(
                     width: 200,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Select a Number!',
                         labelStyle: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -99,7 +98,7 @@ class _TutorialHomeState extends State<TutorialHome> {
                     ),
                   ),
                   FlatButton(
-                      child: Text(
+                      child: const Text(
                         'Guess',
                         style: TextStyle(color: Colors.purple),
                       ),
