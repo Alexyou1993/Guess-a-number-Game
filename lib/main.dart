@@ -17,10 +17,8 @@ class TutorialHome extends StatefulWidget {
 class _TutorialHomeState extends State<TutorialHome> {
   int _guessNumber = Random().nextInt(100);
   final TextEditingController _userInput = TextEditingController();
-  // todo: better variable naming, what does this variable do (Ex. message, currentMessage, userInfo)
   String _showText = '';
 
-  // todo: ?????
   void _guessNumberF() {
     final int _userInt = int.parse(_userInput.text);
     if (_guessNumber == int.parse(_userInput.text)) {
@@ -46,7 +44,6 @@ class _TutorialHomeState extends State<TutorialHome> {
     // Scaffold is a layout for the major Material Components.
     return Scaffold(
       appBar: AppBar(
-        // todo: AppBar has a centerTitle param
         title: const Text(
           'Guess a number Game ',
           textAlign: TextAlign.center,
@@ -107,7 +104,7 @@ class _TutorialHomeState extends State<TutorialHome> {
                       ),
                       onPressed: () {
                         _guessNumberF();
-                      }), // todo: trailing comma
+                      }),
                 ],
               ),
             ),
