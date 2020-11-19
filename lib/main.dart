@@ -17,23 +17,23 @@ class TutorialHome extends StatefulWidget {
 class _TutorialHomeState extends State<TutorialHome> {
   int _guessNumber = Random().nextInt(100);
   final TextEditingController _userInput = TextEditingController();
-  String _showText = '';
+  String _currentMessage = '';
 
-  void _guessNumberF() {
+  void _checkNumber() {
     final int _userInt = int.parse(_userInput.text);
     if (_guessNumber == int.parse(_userInput.text)) {
       setState(() {
-        _showText =
+        _currentMessage =
             'You guessed $_userInt . Congrats!!!\nYou want to try again? Go on!';
         _guessNumber = Random().nextInt(100);
       });
     } else if (_guessNumber > int.parse(_userInput.text)) {
       setState(() {
-        _showText = 'You guessed $_userInt\nTry a HIGHER number!';
+        _currentMessage = 'You guessed $_userInt\nTry a HIGHER number!';
       });
     } else if (_guessNumber < int.parse(_userInput.text)) {
       setState(() {
-        _showText = 'You guessed $_userInt\nTry a LOWER number!';
+        _currentMessage = 'You guessed $_userInt\nTry a LOWER number!';
       });
     }
     _userInput.clear();
@@ -44,9 +44,9 @@ class _TutorialHomeState extends State<TutorialHome> {
     // Scaffold is a layout for the major Material Components.
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
           'Guess a number Game ',
-          textAlign: TextAlign.center,
         ),
       ),
       body: Column(
@@ -67,7 +67,7 @@ class _TutorialHomeState extends State<TutorialHome> {
             'It\'s your turn to guess my number!',
           ),
           Text(
-            _showText,
+            _currentMessage,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
@@ -103,7 +103,7 @@ class _TutorialHomeState extends State<TutorialHome> {
                         style: TextStyle(color: Colors.purple),
                       ),
                       onPressed: () {
-                        _guessNumberF();
+                        _checkNumber();
                       }),
                 ],
               ),
