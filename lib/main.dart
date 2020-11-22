@@ -53,7 +53,7 @@ class _TutorialHomeState extends State<TutorialHome> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8),
             child: const Text(
               'I\'m thinking of a number between 1 and 100. ',
               style: TextStyle(
@@ -82,7 +82,7 @@ class _TutorialHomeState extends State<TutorialHome> {
                 children: <Widget>[
                   Container(
                     width: 200,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(8),
                     child: TextField(
                       decoration: const InputDecoration(
                         labelText: 'Select a Number!',
