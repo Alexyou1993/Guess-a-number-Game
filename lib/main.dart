@@ -18,6 +18,7 @@ class _TutorialHomeState extends State<TutorialHome> {
   int _guessNumber = Random().nextInt(100);
   final TextEditingController _userInput = TextEditingController();
   String _currentMessage = '';
+  bool _validate = false;
 
   void _checkNumber() {
     final int _userInt = int.parse(_userInput.text);
@@ -84,9 +85,10 @@ class _TutorialHomeState extends State<TutorialHome> {
                     width: 200,
                     padding: const EdgeInsets.all(8),
                     child: TextField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Select a Number!',
-                        labelStyle: TextStyle(
+                        errorText: _validate ? 'Value Can\'t Be Empty' : null,
+                        labelStyle: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                           color: Colors.black,
@@ -98,13 +100,21 @@ class _TutorialHomeState extends State<TutorialHome> {
                     ),
                   ),
                   FlatButton(
-                      child: const Text(
-                        'Guess',
-                        style: TextStyle(color: Colors.purple),
-                      ),
-                      onPressed: () {
+                    child: const Text(
+                      'Guess',
+                      style: TextStyle(color: Colors.purple),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _userInput.text.isEmpty
+                            ? _validate = true
+                            : _validate = false;
+                      });
+                      if (_validate == false) {
                         _checkNumber();
-                      }),
+                      }
+                    },
+                  ),
                 ],
               ),
             ),
