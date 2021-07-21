@@ -76,7 +76,6 @@ class _TutorialHomeState extends State<TutorialHome> {
             ),
           ),
           Card(
-            color: Colors.green,
             elevation: 15,
             child: SingleChildScrollView(
               child: Column(
